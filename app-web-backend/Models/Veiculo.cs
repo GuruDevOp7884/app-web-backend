@@ -17,6 +17,6 @@ namespace app_web_backend.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a placa!")]
-        public string Placa { get; set; }
+        public string Placa { get; set; }   
     }
 }
