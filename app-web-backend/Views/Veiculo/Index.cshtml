@@ -7,11 +7,11 @@
 <h1>Veiculos</h1>
 
 <p>
-    <a asp-action="Create">   
+    <a asp-action="Create">
         <input type="submit" value="Adicionar" class="btn btn-outline-primary" />
     </a>
 </p>
-<table class="table">
+<table id="myTable" class="table table-bordered  table-hover">
     <thead>
         <tr>
             <th>
@@ -27,23 +27,51 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Placa)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" style="color:forestgreen;"><i class="fa-solid fa-pen-to-square"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color:cornflowerblue;"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="color:red;"><i class="fa-solid fa-trash-can"></i></a> |
+                    <a asp-action="Relatorio" asp-route-id="@item.Id" style="color:darkorange;"><i class="fa-solid fa-clipboard-list"></i></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "language": {
+                    lengthMenu: 'Mostrar _MENU_ linhas por página',
+                    zeroRecords: 'Nada encontrado!',
+                    info: 'Página _PAGE_ de _PAGES_',
+                    infoEmpty: 'Não há registros',
+                    infoFiltered: '(Filtrando de _MAX_ total registros)',
+                    search: "Pesquisar:",
+                    "paginate": {
+                        first: "Primeiro",
+                        last: "Ultimo",
+                        next: "Seguinte",
+                        previous: "Anterior",
+                    },
+                },
+
+               
+            });
+        });
+    </script>
+}
