@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,7 +33,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Consumos" asp-action="Index">Consumos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+                        </li>
                     </ul>
+                    <div>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <p>
+                               Olá @User.Identity.Name <a class="ml-1" style="color:red" asp-controller="Usuarios" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                            </p>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary" asp-controller="Usuarios" asp-action="Login">Login</a>
+                        }
+                    </div>
                 </div>
             </div>
         </nav>

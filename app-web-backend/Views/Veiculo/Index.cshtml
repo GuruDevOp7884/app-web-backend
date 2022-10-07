@@ -40,10 +40,18 @@
                     @Html.DisplayFor(modelItem => item.Placa)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" style="color:forestgreen;"><i class="fa-solid fa-pen-to-square"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" style="color:cornflowerblue;"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" style="color:red;"><i class="fa-solid fa-trash-can"></i></a> |
-                    <a asp-action="Relatorio" asp-route-id="@item.Id" style="color:darkorange;"><i class="fa-solid fa-clipboard-list"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" style="color:forestgreen;">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" style="color:cornflowerblue;">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" style="color:red;">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a> |
+                    <a asp-action="Relatorio" asp-route-id="@item.Id" style="color:darkorange;">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </a>
                 </td>
             </tr>
         }
@@ -68,9 +76,7 @@
                         next: "Seguinte",
                         previous: "Anterior",
                     },
-                },
-
-               
+                }, 
             });
         });
     </script>
